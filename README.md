@@ -1,76 +1,63 @@
 Readers & Writers Problem with Writer's Priority
-Project Overview
-This project implements the classical Readers-Writers synchronization problem with a specific focus on writer priority. Developed as an Operating Systems semester project, it demonstrates fundamental concurrency concepts such as mutual exclusion, thread synchronization, and starvation prevention.
+This repository contains a Python implementation of the classical Readers-Writers synchronization problem, specifically designed with writer priority to prevent writer starvation. Developed as an Operating Systems semester project, it demonstrates the practical application of thread coordination, mutual exclusion, and resource management.
 
-The implementation provides two primary interfaces:
+🚀 Features
 
+Writer Priority Mechanism: Implements logic that blocks new readers if a writer is waiting, ensuring writers are not starved by a continuous stream of readers.
 
-Streamlit Web Interface: A real-time dashboard for visualizing thread execution, system statistics, and interactive concept diagrams.
+Real-Time Visualization: A Streamlit-based web dashboard provides live metrics, execution logs, and thread state tracking.
 
+Interactive Simulation: Adjust the number of readers, writers, and simulation duration through a Jupyter Notebook or web interface.
 
-Jupyter Notebook: An educational platform designed for step-by-step understanding of synchronization mechanisms.
+Data Consistency: Built-in verification to ensure shared data remains consistent across concurrent operations.
 
-Key Features
+Efficient Resource Usage: Uses condition variables instead of busy waiting to save CPU cycles.
 
-Writer Priority: Prevents writer starvation by blocking new readers when a writer is waiting.
+🧠 OS Concepts Applied
+The project implements several core Operating System principles:
 
+Multithreading: Managing concurrent execution using Python’s threading module.
 
-Real-time Visualization: Live logs, execution metrics (active readers, waiting writers), and interactive concurrency graphs.
+Mutual Exclusion (Mutex): Protecting shared counters (reader_count, waiting_writers) from race conditions.
 
+Condition Variables: Coordinating thread execution by allowing threads to sleep and wake up based on specific state changes.
 
-Data Consistency: Automated verification to ensure shared_data matches the total number of successful writes.
+Deadlock Prevention: Utilizing structured lock ordering and hierarchy to ensure the system never reaches a circular wait state.
 
+🛠️ Tools & Technologies
+Tool	Purpose
+Python	Core programming language for implementation.
 
-Efficient Synchronization: Uses Python’s threading.Condition variables to avoid CPU-heavy busy waiting.
+Threading	Python library used for creating and managing concurrent threads.
 
-Operating System Concepts Applied
-This project serves as a practical application of several OS core principles:
+Streamlit	Framework used for the interactive web dashboard and real-time visualization.
 
+Pandas	Used for data manipulation and exporting simulation logs to CSV.
 
-Multithreading: Managing concurrent execution of multiple reader and writer threads.
+Jupyter	Provides an educational, step-by-step execution environment.
 
+💻 Installation & Usage
+1. Requirements
+Python 3.8+.
 
-Mutual Exclusion: Utilizing Mutex locks to prevent race conditions on shared counters.
+4GB RAM minimum.
 
-
-Condition Variables: Facilitating efficient thread signaling and waiting without wasting CPU cycles.
-
-
-Deadlock & Starvation Prevention: Implementing lock ordering and priority logic to ensure system progress.
-
-System Requirements
-
-Python: version 3.8 or higher.
-
-
-RAM: 4GB minimum.
-
-
-Browser: Chrome, Firefox, or Edge (for Streamlit).
-
-Installation & Usage
-1. Install Dependencies
-Bash
+2. Setup
+   # Install required libraries
 pip install streamlit pandas jupyter ipywidgets
 
+3. Running the Simulation
+Web Interface (Streamlit):
+python -m streamlit run app.py
 
-2. Run the Streamlit Dashboard
-Bash
-streamlit run app.py
-
-If the command is not found, use: python -m streamlit run app.py.
-
-3. Run the Jupyter Notebook
-Bash
+Educational Notebook:
 jupyter notebook readers_writers.ipynb
 
+📊 Results & Testing
+The system has been tested under various configurations to ensure correctness:
 
-Project Structure
+Concurrency: Multiple readers can access the resource simultaneously, as verified by max_concurrent_readers stats.
 
-app.py: The main Streamlit application file.
+Exclusivity: Writers maintain exclusive access; no readers or other writers can enter the critical section during a write.
 
-
-readers_writers.ipynb: Interactive Jupyter Notebook for step-by-step execution.
-
-
-simulation_data.csv: Exported logs and metrics from the simulation.
+Consistency: Final data values are verified against the total number of write operations (e.g., Final Data == Total Writes).
