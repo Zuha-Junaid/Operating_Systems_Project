@@ -1,4 +1,5 @@
 Readers & Writers Problem with Writer's Priority
+
 This repository contains a Python implementation of the classical Readers-Writers synchronization problem, specifically designed with writer priority to prevent writer starvation. Developed as an Operating Systems semester project, it demonstrates the practical application of thread coordination, mutual exclusion, and resource management.
 
 🚀 Features
