@@ -1,0 +1,6 @@
+lsstep,log,shared_data
+0,Simulation Started,0
+1,Reader 1 reading,0
+2,Writer 1 writing,1
+3,Writer finished,1
+4,Reader finished,2
