@@ -15,6 +15,7 @@ Data Consistency: Built-in verification to ensure shared data remains consistent
 Efficient Resource Usage: Uses condition variables instead of busy waiting to save CPU cycles.
 
 🧠 OS Concepts Applied
+
 The project implements several core Operating System principles:
 
 Multithreading: Managing concurrent execution using Python’s threading module.
@@ -38,23 +39,31 @@ Pandas	Used for data manipulation and exporting simulation logs to CSV.
 Jupyter	Provides an educational, step-by-step execution environment.
 
 💻 Installation & Usage
+
 1. Requirements
+   
 Python 3.8+.
 
 4GB RAM minimum.
 
 2. Setup
-   # Install required libraries
+   
+Install required libraries
+
 pip install streamlit pandas jupyter ipywidgets
 
-3. Running the Simulation
+4. Running the Simulation
+   
 Web Interface (Streamlit):
+
 python -m streamlit run app.py
 
 Educational Notebook:
+
 jupyter notebook readers_writers.ipynb
 
 📊 Results & Testing
+
 The system has been tested under various configurations to ensure correctness:
 
 Concurrency: Multiple readers can access the resource simultaneously, as verified by max_concurrent_readers stats.
